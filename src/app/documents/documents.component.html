@@ -1,1 +1,46 @@
-<p>documents works!</p>
+<nav class="navbar navbar-expand-lg bg-warning">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">EverydayEase</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <select id="firstList" (change)="onFirstListChange($event)"class="form-select">
+            <option value="">Classe:</option>
+            <option value="option1">1 ere</option>
+            <option value="option2">2 eme</option>
+            <option value="option3">3 eme</option>
+          </select>
+        </li>
+        <li>
+          <select id="secondList" [hidden]="!secondListOptions.length"class="form-select">
+            <option value="" *ngIf="!secondListOptions.length"></option>
+            <option *ngFor="let option of secondListOptions" [value]="option">{{ option }}</option>
+          </select>
+        </li>
+        <li>
+          <select class="form-select">
+            <option value="">Fichier:</option>
+            <option value="option1">COURS</option>
+            <option value="option2">TD</option>
+            <option value="option3">TP</option>
+            <option value="option3">EXAMENS</option>
+          </select>
+        </li>
+      </ul>
+      
+    </div>
+    <form class="d-flex" role="search">
+      <button class="btn btn-outline-success" type="button" onclick="search()">Search</button>
+    </form>
+  </div>
+</nav>
+<div class="offset-9">
+<form (submit)="onSubmit()">
+  <div class="form-group">
+    <input type="file" class="form-control-file" id="fileUpload" >
+  </div>
+</form>
+</div>

@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <h1> Formulaire d'inscription </h1>
+    <form autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+        <div class="form-groupe col-4">
+            <label for="cin">CIN</label>
+            <input type="text" id="cin" class="form-control"
+            ngModel name="cin"
+            #cin="ngModel"
+            required 
+            minlength="8"
+            [(ngModel)]="logi.cin">
+            <div class="alert alert-danger" *ngIf="cin.touched && !cin.valid">required</div>
+        </div>
+        <div class="form-groupe col-4">
+            <label for="name">Name</label>
+            <input type="text" id="name" class="form-control"
+            ngModel name="name"
+            #name="ngModel"
+            required
+            [(ngModel)]="logi.name">
+            <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+                <div *ngIf="name.errors">required</div>
+            </div>
+        </div>
+        <div class="form-groupe col-4">
+            <label for="lastname">LastName</label>
+            <input type="text" id="lastname" class="form-control"
+            ngModel name="lastname"
+            #lastname="ngModel"
+            required
+            [(ngModel)]="logi.lastname">
+            <div class="alert alert-danger" *ngIf="lastname.touched && !lastname.valid">
+                <div *ngIf="lastname.errors">required</div>
+            </div>
+        </div>
+        <div class="form-groupe col-4">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control"
+            ngModel name="email"
+            #email="ngModel"
+            required
+            minlength="5"
+            [(ngModel)]="logi.email">
+            <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                <div *ngIf="email.errors">required</div>
+            </div>
+        </div>
+        <div class="form-groupe col-4">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control"
+            ngModel name="password"
+            #password="ngModel"
+            required
+            minlength="8"
+            [(ngModel)]="logi.mdp">
+            <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+                <div *ngIf="password.errors">required</div>
+            </div>
+        </div>
+        <div class="d-grid gap-2 d-md-block">
+            <button class="btn btn-primary" type="submit">Valider</button>
+            <button class="btn btn-primary" type="reset">Annuler</button>
+          </div>
+    </form>
+</div>

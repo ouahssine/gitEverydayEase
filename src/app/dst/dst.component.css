@@ -1,3 +1,17 @@
 .row{
     transform: translateY(+50px);
 }
+<<<<<<< Updated upstream
+=======
+#a{
+    height: 100px;
+}
+button:hover{
+    color: black;
+    background-color:goldenrod;
+}
+button{
+    border: 1px solid;
+}
+
+>>>>>>> Stashed changes
